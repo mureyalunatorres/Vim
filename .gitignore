@@ -1,3 +1,2 @@
 # git ignore file for vim files
 /bundle/*
-!/bundle/Vundle

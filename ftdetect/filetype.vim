@@ -5,4 +5,4 @@ au BufNewFile,BufRead *.atp		setf atp
 au BufNewFile,BufRead *.log		setf log
 
 " Pandoc
-au BufNewFile,BufRead *.md		setf markdown.pandoc
+au BufNewFile,BufFilePre,BufRead *.md		setf markdown.pandoc

@@ -1,33 +1,14 @@
 set nocompatible
-filetype off
-
-" %%%%%%%%%%%%%%%%%%%%%%%%%
-" Vundle Settings
-" %%%%%%%%%%%%%%%%%%%%%%%%%
-set rtp+=$HOME/vim/vimfiles/bundle/Vundle.vim/
-call vundle#begin('$USERPROFILE/vim/vimfiles/bundle/')
-
-Plugin 'godlygeek/tabular'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-scripts/ConvertBase.vim'
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-call vundle#end()
-filetype plugin indent on
-
-" %%%%%%%%%%%%%%%%%%%%%%%%% Non-Vundle Settings %%%%%%%%%%%%%%%%%%%%%%%%%
 
 set encoding=utf-8 " displayed
 set fileencoding=utf-8 " written to file
 set ff=unix
 
+if has("win32") || has('win64')
+	source $HOME/vim/vimfiles/plugin/vundle_rc.vim
+else
+	source ~/vim/vimfiles/plugin/vundle_rc.vim
+endif
 
 if has("win32") || has('win64')
 	set backupdir=$HOME/Documents/workspace/vim/backup//
