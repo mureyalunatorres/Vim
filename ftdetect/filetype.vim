@@ -2,6 +2,9 @@
 au BufNewFile,BufRead *.atp		setf atp
 
 " Log files (generic)
+au BufNewFile,BufRead *time.log		setf tlog
+
+" Log files (generic)
 au BufNewFile,BufRead *.log		setf log
 
 " Pandoc
