@@ -52,6 +52,8 @@ set textwidth=80
 set formatoptions+=t "auto-wrap text using text-width
 set list
 set listchars=tab:>- " along with set list, displays characters to indicate a tab
+set spellfile=$HOME/vim/vimfiles/spell/en.utf-8.add
+set complete+=kspell
 
 " gVim settings
 if has('gui_running')
