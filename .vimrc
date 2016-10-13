@@ -35,6 +35,7 @@ set wildignore+=*.pdf "ignore pdfs in searches
 
 set number
 set relativenumber
+set ruler
 set scrolloff=10 "keeps 10 lines above/below cursor by scrolling the window
 set sidescroll=1
 
