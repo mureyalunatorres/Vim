@@ -40,6 +40,7 @@ set scrolloff=10 "keeps 10 lines above/below cursor by scrolling the window
 set sidescroll=1
 
 set showmatch
+set hlsearch " highlights all matches
 set incsearch "searches as you type the query
 set ignorecase " case insensitive search
 
@@ -48,13 +49,13 @@ set tabstop=4
 set shiftwidth=4
 set backspace=2 " allows sensible backspace behavior
 set autoindent
-set wrap
 set textwidth=80
 set formatoptions+=t "auto-wrap text using text-width
 set list
 set listchars=tab:>- " along with set list, displays characters to indicate a tab
 set spellfile=$HOME/vim/vimfiles/spell/en.utf-8.add
 set complete+=kspell
+map <F9> :set wrap!<CR>
 
 " gVim settings
 if has('gui_running')
