@@ -76,10 +76,11 @@ let g:pandoc#modules#disabled = ["folding", "formatting"]
 imap <C-BS> <C-w>
 
 " autocorrections
-iab khz kHz
-iab mhz MHz
-iab usb USB
-iab micromips $\mu$MIPS32
-iab mips MIPS32
+iab khz		kHz
+iab mhz		MHz
+iab usb		USB
+iab micromips	$\mu$MIPS32
+iab mips	MIPS32
+iab adc		ADC
 
 syntax on
