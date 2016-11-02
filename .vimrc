@@ -55,7 +55,6 @@ set list
 set listchars=tab:>- " along with set list, displays characters to indicate a tab
 set spellfile=$HOME/vim/vimfiles/spell/en.utf-8.add
 set complete+=kspell
-map <F9> :set wrap!<CR>
 
 " gVim settings
 if has('gui_running')
@@ -74,6 +73,7 @@ let g:pandoc#modules#disabled = ["folding", "formatting"]
 
 " keymappings
 imap <C-BS> <C-w>
+map <F9> :set wrap!<CR>
 
 " autocorrections
 iab khz		kHz
