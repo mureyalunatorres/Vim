@@ -4,6 +4,7 @@ set encoding=utf-8 " displayed
 set fileencoding=utf-8 " written to file
 set ff=unix
 
+" vundle stuff
 if has("win32") || has('win64')
 	source $HOME/vim/vimfiles/plugin/vundle_rc.vim
 else
@@ -33,12 +34,14 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 set wildignore+=*.pdf "ignore pdfs in searches
 
+" ui
 set number
 set relativenumber
 set ruler
 set scrolloff=10 "keeps 10 lines above/below cursor by scrolling the window
 set sidescroll=1
 
+" searching
 set showmatch
 set hlsearch " highlights all matches
 set incsearch "searches as you type the query
@@ -60,7 +63,7 @@ set complete+=kspell
 if has('gui_running')
 	set guioptions-=T " no toolbar
 	set guifont=Source_Code_Pro:h11
-	set lines=999 columns=90
+	set lines=40 columns=85
 endif
 
 " Theme settings
@@ -73,7 +76,11 @@ let g:pandoc#modules#disabled = ["folding", "formatting"]
 
 " keymappings
 imap <C-BS> <C-w>
+" toggle linewrapping
 map <F9> :set wrap!<CR>
+" select block with width equal to word under cursor and 4 tall
+" <Alt-v> = ö
+map ö <C-V>aWh3j
 
 " abbreviations
 iab khz		kHz
@@ -91,5 +98,6 @@ iab mcu8	MCU8
 iab mcu16	MCU16
 iab mcu32	MCU32
 
+set diffopt+=iwhite
 
 syntax on
