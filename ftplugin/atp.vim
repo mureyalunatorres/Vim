@@ -6,4 +6,9 @@ setlocal nowrap
 " <optional opcode> > <timeset> <pin data>; <comment> The pattern must also
 " occur before a semicolon. This effectively selects groups of <pin data> with
 " extra spaces and replaces the extra spaces with a single space
-command CompressVectors %s/\(> \w* .*\)\@<=\(;.*\)\@<!\([-01VLHX]\+\)\s\+/\3 /g | ''
+if !exists(":CompressVectors")
+	command CompressVectors %s/\(> \w* .*\)\@<=\(;.*\)\@<!\([-01VLHX]\+\)\s\+/\3 /g | noh | '' 
+endif
+
+set comments=s1:/*,m:*,ex:*/,://,b:>
+set fo=qor
