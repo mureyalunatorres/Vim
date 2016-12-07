@@ -75,12 +75,21 @@ let g:pandoc#modules#disabled = ["folding", "formatting"]
 imap <C-BS> <C-w>
 map <F9> :set wrap!<CR>
 
-" autocorrections
+" abbreviations
 iab khz		kHz
 iab mhz		MHz
 iab usb		USB
 iab micromips	$\mu$MIPS32
 iab mips	MIPS32
+iab mchp	Microchip Technology Inc.
 iab adc		ADC
+iab bor		BOR
+iab cpu		CPU
+iab jtag	JTAG
+iab fpga	FPGA
+iab mcu8	MCU8
+iab mcu16	MCU16
+iab mcu32	MCU32
+
 
 syntax on
