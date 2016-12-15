@@ -74,8 +74,23 @@ let g:gruvbox_contrast_dark='medium'
 " Pandoc settings
 let g:pandoc#modules#disabled = ["folding", "formatting"]
 
+" Functions
+function! ToggleSplit()
+	if winwidth(2) == -1
+		"there isn't a split yet
+		vsplit
+		normal <C-w>=
+	else
+		"close split
+		only
+	endif
+endfunction
+
+
 " keymappings
 imap <C-BS> <C-w>
+" toggle linewrapping
+map <F8> :call ToggleSplit()<CR>
 " toggle linewrapping
 map <F9> :set wrap!<CR>
 " select block with width equal to word under cursor and 4 tall
