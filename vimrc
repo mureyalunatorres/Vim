@@ -6,7 +6,7 @@ set ff=unix
 
 " vundle stuff
 if has("win32") || has('win64')
-	source $HOME/vim/vimfiles/plugin/vundle_rc.vim
+	source $HOME/vimfiles/plugin/vundle_rc.vim
 else
 	source ~/vim/vimfiles/plugin/vundle_rc.vim
 endif
@@ -15,10 +15,9 @@ if has("win32") || has('win64')
 	set backupdir=$HOME/Documents/workspace/vim/backup//
 	set directory=$HOME/Documents/workspace/vim/swap//
 	set undodir=$HOME/Documents/workspace/vim/undo//
-	let $PYTHONPATH = "C:\\Python27\\Lib;C:\\Python27\\DLLsC:\\Python27\\Lib\\lib-tk;"
 	let g:ctrlp_root_markers = ['Notes']
 	let g:gtrlp_working_path_mode = 'rc'
-	set rtp+=$HOME/vim/
+	"set rtp+=$HOME/vim/
 	let g:UltiSnipsSnippetsDir="~/vim/customUltiSnips" "were my custom snippets are held
 
 	" disabled directx... runs too slow
@@ -74,6 +73,9 @@ let g:gruvbox_contrast_dark='medium'
 " Pandoc settings
 let g:pandoc#modules#disabled = ["folding", "formatting"]
 
+" vim-skeleton settings
+let g:skeleton_template_dir = "~/vim/.vim/templates"
+
 " Functions
 function! ToggleSplit()
 	if winwidth(2) == -1
@@ -93,9 +95,10 @@ imap <C-BS> <C-w>
 map <F8> :call ToggleSplit()<CR>
 " toggle linewrapping
 map <F9> :set wrap!<CR>
-" select block with width equal to word under cursor and 4 tall
-" <Alt-v> = ö
-map ö <C-V>aWh3j
+" toggle log filetype
+map <F10> :set ft=log<CR>
+" toggle time log filetype
+map <F11> :set ft=tlog<CR>
 
 " abbreviations
 iab khz		kHz
@@ -112,6 +115,8 @@ iab fpga	FPGA
 iab mcu8	MCU8
 iab mcu16	MCU16
 iab mcu32	MCU32
+iab visi	VISI
+
 
 set diffopt+=iwhite
 
