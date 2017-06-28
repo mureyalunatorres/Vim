@@ -9,23 +9,23 @@ endif
 " keywords
 syn keyword imports import
 syn keyword repeats  repeat 
-syn keyword endOfPat halt
-syn keyword endOfSub return
+syn keyword lastLine halt end_module return
 
 " syntax for non-Data text in in the vector
-syn match loops "\(set\|end\)_loop[ABCD]" contained
+syn match loops "\(set_\|end_\|\)loop[ABCD]" contained
 syn match branchDest "\h\w*\ze," contained
-syn match subroutine "^call \zs\w\+" contained
+syn match subroutine "\(call\|jump\) \zs\w\+" contained
 syn region vectorPre start="^" end=">"me=e-1 oneline contains=subroutine,loops,branchDest
 
 " labels on their own
 syn match labels		"^\(.*\s\)\=\zs\w\+:"me=e-1
 
 " syntax for vector data
-syn match binNumber	"[01]" contained
+syn match readDrive	"\.[dr]" contained
+syn match hexNumber	"\x" contained
 syn match logicRead "[LVH]" contained
-syn match logicDontCare		"[-X]" contained
-syn region vectorData  start="> \w\+\zs" end=";"me=e-1,he=e-1,re=e-1 contains=binNumber,logicRead,logicDontCare display
+syn match logicDontCare		"\.\?[-X]" contained
+syn region vectorData  start="> \w\+\zs" end=";"me=e-1,he=e-1,re=e-1 contains=readDrive,logicRead,logicDontCare,hexNumber display
 
 "comments
 syn match atpComment "\/\/.*$"
@@ -40,22 +40,22 @@ syn region longComment2 start="\/\/\s*=\+.*=\+$"hs=s end="\/\/\s*=\+.*=\+$"he=e
 syntax sync fromstart
 
 " The default methods for highlighting.  Can be overridden later
-hi def link endOfPat	Type
-hi def link endOfSub	Type
+hi def link lastLine	Type
 hi def link imports		Keyword
 hi def link repeats		Macro
 hi def link subroutine	Function
 hi def link labels		Identifier
 hi def link branchDest	Identifier
 hi def link jumpgroup	Identifier
+hi def link readDrive	Special
 hi def link loops		Repeat
-hi def link binNumber	Number
+hi def link hexNumber	Number
 hi def link logicRead	String
 hi def link atpComment	Comment
 hi def link logicDontCare	LineNr
 hi def link atpEndComment	Comment
 hi def link longComment		Type
-hi def link longComment2		Type
+hi def link longComment2	Type
 hi def link atpDevNote		Type
 
 let b:current_syntax = "atp"

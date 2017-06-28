@@ -11,7 +11,7 @@ syn match t_mem_erase	"\<[mw]_\S*erase\S*" " memory test
 
 " Numbers
 syn match testNumber	"^\s\d\+\s\+\d\+\s"
-syn match measureNumber	"-\=\d\+\.\d\+\D"
+syn match measureNumber	"\s-\=\d\+\.\d\+\D"
 
 " rows
 syn match log_error		'\c.*\<\(FAIL\)\>.*'
