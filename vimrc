@@ -39,6 +39,7 @@ set relativenumber
 set ruler
 set scrolloff=10 "keeps 10 lines above/below cursor by scrolling the window
 set sidescroll=1
+set sidescrolloff=15 " keeps 15 left/right of cursor by scrolling windows
 
 " searching
 set showmatch
@@ -55,7 +56,7 @@ set textwidth=80
 set formatoptions+=t "auto-wrap text using text-width
 set list
 set listchars=tab:>- " along with set list, displays characters to indicate a tab
-set spellfile=$HOME/vim/vimfiles/spell/en.utf-8.add
+set spellfile=$HOME/vimfiles/spell/en.utf-8.add
 set complete+=kspell
 
 " gVim settings
@@ -73,6 +74,12 @@ endif
 colo gruvbox
 set background=dark
 let g:gruvbox_contrast_dark='medium'
+let g:gruvbox_contrast_light='hard'
+
+function! PresentationMode()
+	let &background = ( &background == "dark"? "light" : "dark" )
+	let &guifont = ( &guifont == "Source_Code_Pro:h11"? "Source_Code_Pro_Semibold:h12" : "Source_Code_Pro:h11" )
+endfunction
 
 " Pandoc settings
 let g:pandoc#modules#disabled = ["folding", "formatting"]
@@ -120,6 +127,8 @@ iab mcu8	MCU8
 iab mcu16	MCU16
 iab mcu32	MCU32
 iab visi	VISI
+iab frc		FRC
+iab	mem		memory
 
 
 set diffopt+=iwhite
