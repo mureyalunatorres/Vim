@@ -8,7 +8,7 @@ set ff=unix
 if has("win32") || has('win64')
 	source $HOME/vimfiles/plugin/vundle_rc.vim
 else
-	source ~/vim/plugin/vundle_rc.vim
+	source ~/.vim/plugin/vundle_rc.vim
 endif
 
 if has("win32") || has('win64')
@@ -35,7 +35,7 @@ set wildignore+=*.pdf "ignore pdfs in searches
 
 " ui
 set number
-set relativenumber
+v:version > 704 ? set relativenumber
 set ruler
 set scrolloff=10 "keeps 10 lines above/below cursor by scrolling the window
 set sidescroll=1
@@ -66,7 +66,7 @@ if has('gui_running')
 	if has("win32") || has('win64')
 		set guifont=Source_Code_Pro:h11
 	else
-		set guifont=Source\ Code\ Pro\ 11
+		set guifont=Source\ Code\ Pro\ 11\\,\ Monospace\ 11
 	endif
 endif
 

@@ -6,7 +6,7 @@ if has("win32") || has('win64')
 	set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
 	call vundle#begin('$USERPROFILE/vimfiles/bundle/')
 else
-	set rtp+=~/vim/bundle/Vundle.vim/
+	set rtp+=~/.vim/bundle/Vundle.vim/
 	call vundle#begin()
 endif
 
@@ -16,9 +16,9 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'noahfrederick/vim-skeleton'
 Plugin 'godlygeek/tabular'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'vim-pandoc/vim-pandoc'
+v:version > 704 ? Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'SirVer/ultisnips'
+v:version > 704 ? Plugin 'SirVer/ultisnips'
 "Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-surround'
 "Plugin 'vim-scripts/ConvertBase'
