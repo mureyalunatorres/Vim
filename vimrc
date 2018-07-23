@@ -7,29 +7,26 @@ set ff=unix
 " vundle stuff
 if has("win32") || has('win64')
 	source $HOME/vimfiles/plugin/vundle_rc.vim
-else
-	source ~/vim/vimfiles/plugin/vundle_rc.vim
-endif
 
-if has("win32") || has('win64')
 	set backupdir=$HOME/Documents/workspace/vim/backup//
 	set directory=$HOME/Documents/workspace/vim/swap//
 	set undodir=$HOME/Documents/workspace/vim/undo//
 	let g:ctrlp_root_markers = ['Notes']
-	let g:gtrlp_working_path_mode = 'rc'
-	"set rtp+=$HOME/vim/
-	let g:UltiSnipsSnippetsDir="~/vim/customUltiSnips" "were my custom snippets are held
-
-	" disabled directx... runs too slow
-	" set renderoptions=type:directx,gamma:1.0,contrast:0.5,level:1,geom:1,renmode:5,taamode:1
+	let g:ctrlp_working_path_mode = 'rc'
+    
+    set rtp+=$HOME/vim " add directory that contains custom snippet dirrectory
+	let g:UltiSnipsSnippetsDir=$HOME."/vim/customUltiSnips" " where my custom snippets are held
+else
+	source ~/vim/vimfiles/plugin/vundle_rc.vim
 endif
 
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "customUltiSnips"]
+let g:UltiSnipsSnippetDirectories=["UltiSnips","customUltiSnips"]
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="horizontal"
 
 set wildignore+=*.pdf "ignore pdfs in searches
 
@@ -44,10 +41,11 @@ set sidescrolloff=15 " keeps 15 left/right of cursor by scrolling windows
 " searching
 set showmatch
 set hlsearch " highlights all matches
-set incsearch "searches as you type the query
+set incsearch "searrches as you type the query
 set ignorecase " case insensitive search
 
 " indentation/formatting
+set expandtab
 set tabstop=4
 set shiftwidth=4
 set backspace=2 " allows sensible backspace behavior
@@ -55,7 +53,10 @@ set autoindent
 set textwidth=80
 set formatoptions+=t "auto-wrap text using text-width
 set list
-set listchars=tab:>- " along with set list, displays characters to indicate a tab
+" clear listchars and display only desired
+set listchars=tab:>-
+set listchars+=precedes:<
+set listchars+=extends:>
 set spellfile=$HOME/vimfiles/spell/en.utf-8.add
 set complete+=kspell
 
@@ -95,9 +96,30 @@ function! ToggleSplit()
 	endif
 endfunction
 
+" Quick run via <F5>
+nnoremap <F5> :call <SID>compile_and_run()<CR>
+
+augroup SPACEVIM_ASYNCRUN
+    autocmd!
+    " Automatically open the quickfix window
+    autocmd User AsyncRunStart call asyncrun#quickfix_toggle(15, 1)
+augroup END
+
+function! s:compile_and_run()
+    exec 'w'
+    if &filetype == 'c'
+        exec "AsyncRun! gcc % -o %<; time ./%<"
+    elseif &filetype == 'cpp'
+       exec "AsyncRun! g++ -std=c++11 % -o %<; time ./%<"
+    elseif &filetype == 'python'
+       exec "AsyncRun! py %"
+    endif
+endfunction
 
 " keymappings
 imap <C-BS> <C-w>
+" ctrl-s style save if buffer has been modified
+map <c-s> :update<CR>
 " toggle linewrapping
 map <F8> :call ToggleSplit()<CR>
 " toggle linewrapping
@@ -125,6 +147,8 @@ iab mcu32	MCU32
 iab visi	VISI
 iab frc		FRC
 iab	mem		memory
+iab iglx    IG-XL
+iab ttr     TTR
 
 
 set diffopt+=iwhite
