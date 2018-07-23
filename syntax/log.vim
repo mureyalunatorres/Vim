@@ -18,6 +18,8 @@ syn match log_error		'\c.*\<\(FAIL\)\>.*'
 syn match pass			'\<PASS\>'
 syn match calib			'^\s*#.*$'
 
+syn match headerLine   '^header:.*$'
+
 " header/footer
 syn region header	start="^Datalog report$"hs=s end="Device#:.*$"he=e
 syn region footer	start="^\s*Site Failed"hs=s end="^=\+$"he=e
@@ -30,6 +32,7 @@ hi link measureNumber	Identifier
 hi link log_error		ErrorMsg
 hi link pass			LineNr
 hi link calib			LineNr
+hi link headerLine      Type
 hi link header			Type
 hi link footer			Special
 
