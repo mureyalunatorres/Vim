@@ -6,7 +6,7 @@ if has("win32") || has('win64')
 	set rtp+=$HOME/vimfiles/bundle/Vundle.vim
 	call vundle#begin('$USERPROFILE/vimfiles/bundle/')
 else
-	set rtp+=~/vim/bundle/Vundle.vim/
+	set rtp+=~/.vim/bundle/Vundle.vim/
 	call vundle#begin()
 endif
 

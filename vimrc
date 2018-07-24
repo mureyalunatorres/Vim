@@ -32,7 +32,7 @@ set wildignore+=*.pdf "ignore pdfs in searches
 
 " ui
 set number
-set relativenumber
+v:version > 704 ? set relativenumber
 set ruler
 set scrolloff=10 "keeps 10 lines above/below cursor by scrolling the window
 set sidescroll=1
@@ -63,8 +63,12 @@ set complete+=kspell
 " gVim settings
 if has('gui_running')
 	set guioptions-=T " no toolbar
-	set guifont=Source_Code_Pro:h11
 	set lines=40 columns=85
+	if has("win32") || has('win64')
+		set guifont=Source_Code_Pro:h11
+	else
+		set guifont=Source\ Code\ Pro\ 11\\,\ Monospace\ 11
+	endif
 endif
 
 " Theme settings
