@@ -4,7 +4,7 @@ filetype off
 " %%%%%%%%%%%%%%%%%%%%%%%%%
 if has("win32") || has('win64')
 	set rtp+=$HOME/vimfiles/bundle/Vundle.vim
-	call vundle#begin('$USERPROFILE/vimfiles/bundle/')
+	call vundle#begin('$HOME/vimfiles/bundle/')
 else
 	set rtp+=~/.vim/bundle/Vundle.vim/
 	call vundle#begin()

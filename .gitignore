@@ -2,3 +2,5 @@
 bundle/*
 spell/*
 .netrwhist
+_viminfo
+.bash_history
